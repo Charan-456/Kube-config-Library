@@ -16,6 +16,6 @@ spec:
         image: tony5164/library:latest
         ports:
         - containerPort: 9002
-        envFro
-        
-            
+        envFrom:
+        - secretRef:
+            name: db-secrets
