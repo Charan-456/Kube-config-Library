@@ -24,7 +24,7 @@ spec:
             name: secretkey
         livenessProbe:
           httpGet:
-            path: /health
+            path: /AllUsers
             port: 9002
           initialDelaySeconds: 5
           periodSeconds: 10
