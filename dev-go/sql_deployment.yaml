@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: dev-go
   name: my-sql
 spec:
   selector:
@@ -18,25 +19,22 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
+              name: db-secrets 
               key: dbPassword
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
+              name: db-secrets 
               key: dbName
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
+              name: db-secrets 
               key: dbUser
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
+              name: db-secrets 
               key: dbPassword
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "300m"
-            memory: "256Mi"
         ports:
         - containerPort: 3306
